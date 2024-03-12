@@ -19,8 +19,7 @@ public class UserController {
 
     @RequestMapping("/")
     public String requestMethodName() {
-        String hello = this.userService.handleHello();
-        return "index.html";
+        return "hello.jsp";
     }
 
 }
