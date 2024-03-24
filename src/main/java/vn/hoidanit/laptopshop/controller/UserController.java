@@ -1,12 +1,12 @@
 package vn.hoidanit.laptopshop.controller;
 
-import org.springframework.boot.autoconfigure.security.SecurityProperties.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.services.UserService;
 
 @Controller
@@ -18,22 +18,23 @@ public class UserController {
     }
 
     @RequestMapping("/")
-    public String requestMethodName() {
-        return "hello.jsp";
+    public String requestMethodName(Model model) {
+        String hello = this.userService.handleHello();
+        model.addAttribute("hello", hello);
+        model.addAttribute("name", "Hoi");
+        return "hello";
+    }
+
+    @RequestMapping("/admin/user")
+    public String getUserPage(Model model) {
+        model.addAttribute("newUser", new User());
+        return "admin/user/create";
+    }
+
+    @RequestMapping(value = "/admin/user/create", method = RequestMethod.POST)
+    public String createUserPage(Model model, @ModelAttribute("newUser") User user) {
+        System.out.println("User" + user.getEmail());
+        return "hello";
     }
 
 }
-// @RestController
-// public class UserController {
-// private UserService userService;
-
-// public UserController(UserService userService) {
-// this.userService = userService;
-// }
-
-// @GetMapping("")
-// public String requestMethodName() {
-// return this.userService.handleHello();
-// }
-
-// }
