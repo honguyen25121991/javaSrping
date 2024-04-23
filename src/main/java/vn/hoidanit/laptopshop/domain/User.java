@@ -16,17 +16,35 @@ public class User {
     private String password;
     private String fullName;
     private String phone;
+    private String address;
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     public User() {
     }
 
-    public User(Long id, String name, String email, String password, String fullName, String phone) {
+    public User(Long id, String name, String email, String password, String fullName, String phone, String address) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.fullName = fullName;
         this.phone = phone;
+        this.address = address;
     }
 
     public Long getId() {
@@ -97,11 +115,13 @@ public class User {
     @Override
     public String toString() {
         return "{" +
+                " id='" + getId() + "'" +
                 " name='" + getName() + "'" +
                 ", email='" + getEmail() + "'" +
                 ", password='" + getPassword() + "'" +
                 ", fullName='" + getFullName() + "'" +
                 ", phone='" + getPhone() + "'" +
+                ", address='" + getAddress() + "'" +
                 "}";
     }
 }

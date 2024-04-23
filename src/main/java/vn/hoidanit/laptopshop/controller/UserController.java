@@ -11,7 +11,6 @@ import vn.hoidanit.laptopshop.services.UserService;
 
 @Controller
 public class UserController {
-    @SuppressWarnings("unused")
     private UserService userService;
 
     public UserController(UserService userService) {
@@ -29,10 +28,11 @@ public class UserController {
         return "hello";
     }
 
-    @RequestMapping("/admin/user")
-    public String getUserPage(Model model) {
+    @RequestMapping(value = "/admin/user/create")
+    public String getUserPage(Model model, @ModelAttribute("newUser") User user) {
         model.addAttribute("newUser", new User());
-        return "admin/user/create";
+        this.userService.handleUserSaved(user);
+        return "/admin/user/create";
     }
 
     @RequestMapping(value = "/admin/adminPage", method = RequestMethod.POST)

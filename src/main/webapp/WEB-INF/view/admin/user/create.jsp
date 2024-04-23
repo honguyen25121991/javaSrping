@@ -27,6 +27,10 @@
         <hr/>
         <form:form action="/admin/user/create" method="POST" modelAttribute="newUser">
           <div class="mb-3">
+            <label class="form-label">Name</label>
+            <form:input type="text" class="form-control" path="name"/>
+          </div>
+          <div class="mb-3">
             <label class="form-label">Email</label>
             <form:input type="email" class="form-control" path="email"/>
           </div>
@@ -43,7 +47,12 @@
 
           <div class="mb-3">
             <label  class="form-label">Full Name</label>
-            <form:input type="fullName" class="form-control" path="fullName"/>
+            <form:input type="text" class="form-control" path="fullName"/>
+          </div>
+
+          <div class="mb-3">
+            <label  class="form-label">Address</label>
+            <form:input type="text" class="form-control" path="address"/>
           </div>
         
           <button type="submit" class="btn btn-primary">Register</button>
