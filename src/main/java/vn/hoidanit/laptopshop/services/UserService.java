@@ -32,4 +32,12 @@ public class UserService {
     public List<User> getAllUsersByEmail(String email) {
         return this.userRepository.findByEmail(email);
     }
+
+    public List<User> findAll() {
+        return this.userRepository.findAll();
+    }
+
+    public List<User> findUserById(long id) {
+        return this.userRepository.findById(id);
+    }
 }
