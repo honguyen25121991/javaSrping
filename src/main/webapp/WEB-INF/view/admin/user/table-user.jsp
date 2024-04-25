@@ -45,10 +45,14 @@
                         <td>${user.fullName}</td>
                         <td>
                             <a 
-                            href ="/admin/user/${user.id}"
+                            href ="/admin/user/detail/${user.id}"
                             class="btn btn-success" >View</a>
-                            <a class="btn btn-warning mx-2">Update</a>
-                            <a class="btn btn-danger">Delete</a>
+                            <a class="btn btn-warning mx-2"
+                                href ="/admin/user/update/${user.id}"
+                            >Update</a>
+                            <a class="btn btn-danger"
+                            href ="/admin/user/delete/${user.id}"
+                            >Delete</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -37,7 +37,14 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
-    public List<User> findUserById(long id) {
-        return this.userRepository.findById(id);
+    public User getUserById(long id) {
+        return this.userRepository.getUserById(id);
     }
+
+    public User deleteUserById(long id) {
+        return this.userRepository.deleteById(id);
+    }
+    // public User updateUser(Long id, User user) {
+    // return this.userRepository.update(id, user);
+    // }
 }
