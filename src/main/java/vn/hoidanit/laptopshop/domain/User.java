@@ -17,6 +17,7 @@ public class User {
     private String fullName;
     private String phone;
     private String address;
+    private String avatar;
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
@@ -34,10 +35,15 @@ public class User {
         this.address = address;
     }
 
+    public String getAvatar() {
+        return avatar;
+    }
+
     public User() {
     }
 
-    public User(Long id, String name, String email, String password, String fullName, String phone, String address) {
+    public User(Long id, String name, String email, String password, String fullName, String phone, String address,
+            String avatar) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -45,6 +51,7 @@ public class User {
         this.fullName = fullName;
         this.phone = phone;
         this.address = address;
+        this.avatar = avatar;
     }
 
     public Long getId() {
@@ -112,6 +119,20 @@ public class User {
         return this;
     }
 
+    public User address(String address) {
+        this.address = address;
+        return this;
+    }
+
+    public User avatar(String avatar) {
+        this.avatar = avatar;
+        return this;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Override
     public String toString() {
         return "{" +
@@ -122,6 +143,8 @@ public class User {
                 ", fullName='" + getFullName() + "'" +
                 ", phone='" + getPhone() + "'" +
                 ", address='" + getAddress() + "'" +
+                ", avatar='" + getAvatar() + "'" +
                 "}";
     }
+
 }
